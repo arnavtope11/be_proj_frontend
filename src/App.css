@@ -16,7 +16,7 @@ a {
   outline: none;
 }
 body {
-  background-color: black !important;
+  background-color:#222 !important;
 }
 div.loading__screen__main {
   position: fixed;
@@ -149,7 +149,7 @@ header.header__nav {
       -ms-flex-align: center;
           align-items: center;
   position: fixed;
-  z-index: 1000;
+  z-index: 10000 !important;
   top: 0;
   font-family: 'Oswald', sans-serif;
 }
@@ -677,7 +677,7 @@ div.hidenshow__onclick div.navlinks__mobview button:active {
 
 .cont-outline {
         
-  background-color: lightgrey;
+  background-color:#222;
   padding-top: 10px;
   font-family: "Times New Roman", Times, serif;
   font-size: 15px;
@@ -887,12 +887,14 @@ div.hidenshow__onclick div.navlinks__mobview button:active {
 
 .cont-2 {
   height: 155px;
+  background-color:rgba(255, 255, 255, 0.6);
 }
 
 .cont-tryon {
-  height: 400px;
-  width: 527px;
+  height: 450px;
+  width: 677px;
   margin-top: 25px;
+  background-color:rgba(255, 255, 255, 0.8);
 }
 
 .lips1 {
@@ -1556,17 +1558,27 @@ canvas {
   border-radius: 24px;
   }
 
-  .mainimg{
+  .maincar{
     position: relative;
     margin-top:120px;
     margin-bottom:25px;
     margin-left:auto;
     margin-right:auto;
     display:block;
-    width: 1020px;
-    height: 300px;
+    /* width: 1020px;
+    height: 300px; */
     border-radius: 24px;
     }
+
+    .mainimg{
+      position: relative;
+      margin-left:auto;
+      margin-right:auto;
+      display:block;
+      width: 1020px;
+      height: 300px;
+      border-radius: 24px;
+      }
 
   .tshirt{
     position: relative;
@@ -1805,6 +1817,10 @@ canvas {
       color: rgb(189, 196, 203);
       background-color: black
   }
+
+  .body2 {
+    background-color: black
+}
   
   .card {
       color: lightgray;

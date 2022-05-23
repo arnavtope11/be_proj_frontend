@@ -83,14 +83,13 @@ export default function Checkout(props) {
                         </h4>
                     </div>
                 </div>
-
+                    
             </div>
 
             )
 
 
         }
-
 
         return content;
 

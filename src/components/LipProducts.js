@@ -41,7 +41,7 @@ function lipstick5(){
 export default function LipProducts() {
   return (
     <> 
-    <div className="container-fluid ">
+    <div className="container-fluid body2">
         <div className="row">
             <div className="col-sm">
                 <div className="row-sm">
@@ -54,7 +54,7 @@ export default function LipProducts() {
     
     </div>
     
-    <div className="container-fluid ">
+    <div className="container-fluid body2">
         <div className="row mt-5">
             <div className="col-sm-2 d-flex justify-content-center mb-4 ml-4 mr-4">
                 <Link to="/tryout" onClick={lipstick1}>

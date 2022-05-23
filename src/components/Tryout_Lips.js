@@ -18,17 +18,18 @@ export default function Tryout() {
     const [blue, setBlue] = useState(0)
     const [green, setGreen] = useState(0)
 
-    function updateColor(red,blue,green) {
-        setRed(red);
-        setBlue(blue);
-        setGreen(green);
-
-        fetch('http://127.0.0.1:8080/get_rgb', {
-            methods : 'POST',
-            headers : {
-                'Content-Type' : 'application.json'
+    const updateColor = (r,b,g) => {
+        setRed(r);
+        setBlue(b);
+        setGreen(g);
+        const bodyStr = {r : red, g: green, b: blue};
+        fetch('http://127.0.0.1:8080/post_rgb', {
+            method : "POST",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
             },
-            body : JSON.stringify({r : red, g: green, b: blue})
+            mode: 'cors',
+            body : JSON.stringify(bodyStr)
     })
         .then(response => response.json())
         .catch(error => console.log(error))
@@ -81,6 +82,9 @@ export default function Tryout() {
                     </div>
                     <div className="col-sm">
                         <div className="btn-grp float-right">
+                            <button className="btn button ml-4" type="button">
+                                Checkout <span className="caret"></span>
+                            </button>
                             <button className="btn button ml-4" type="button" value="cart">
                                 <Link to="/checkout"><img src={bag} className="bag_img"></img> <span className="caret"></span></Link>
                             </button>
@@ -91,11 +95,11 @@ export default function Tryout() {
                     </div>
                 </div>
                 <hr></hr>   
-            <div className='container cont-tryon bg-light rounded'>
+            <div className='container d-flex justify-content-center cont-tryon rounded'>
                 <iframe
                         src={'http://127.0.0.1:8080/video_feed_makeup'}
-                        width={500} 
-                        height={400}
+                        width={650} 
+                        height={450}
                         allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen>
                 </iframe>
@@ -115,7 +119,7 @@ export default function Tryout() {
                 </div>
             </div>
             <hr></hr>
-            <div class="container-fluid cont-2 rounded bg-light p-3 my-3 border">
+            <div class="container-fluid cont-2 rounded p-3 mt-4 border">
                 <div className="row row1">
                     <div className="col-sm-1">
                             <img src={sessionStorage.getItem("lip_img")} className="lips1"></img>
@@ -128,14 +132,14 @@ export default function Tryout() {
                     <div className="col-sm-1">
                     </div>
                     <div className="col-sm-4 mt-2">
-                            <button className="color1 rounded-circle mr-3" onClick={() => {updateColor(144,0,31)}} id="color1"></button>
-                        <button className="color2 rounded-circle mr-3" onClick={() => {updateColor(219,7,52)}} id="color1"></button>
-                        <button className="color3 rounded-circle mr-3" onClick={() =>{updateColor(163,14,45)}} id="color1"></button>
-                        <button className="color4 rounded-circle mr-3" onClick={() =>{updateColor(114,22,41)}} id="color1"></button>
-                        <button className="color5 rounded-circle mr-3" onClick={() =>{updateColor(109,5,5)}} id="color1"></button>
-                        <button className="color6 rounded-circle mr-3" onClick={() =>{updateColor(114,22,41)}} id="color1"></button>
-                        <button className="color7 rounded-circle mr-3" onClick={() =>{updateColor(65,0,14)}} id="color1"></button>
-                        <button className="color8 rounded-circle mr-3" onClick={() =>{updateColor(114,22,41)}} id="color1"></button>
+                        <button className="color1 rounded-circle mr-3" onClick={(e) => updateColor(144,0,31)} id="color1"></button>
+                        <button className="color2 rounded-circle mr-3" onClick={(e) => updateColor(219,7,52)} id="color1"></button>
+                        <button className="color3 rounded-circle mr-3" onClick={(e) => updateColor(163,14,45)} id="color1"></button>
+                        <button className="color4 rounded-circle mr-3" onClick={(e) => updateColor(114,22,41)} id="color1"></button>
+                        <button className="color5 rounded-circle mr-3" onClick={(e) => updateColor(109,5,5)} id="color1"></button>
+                        <button className="color6 rounded-circle mr-3" onClick={(e) => updateColor(114,22,41)} id="color1"></button>
+                        <button className="color7 rounded-circle mr-3" onClick={(e) => updateColor(65,0,14)} id="color1"></button>
+                        <button className="color8 rounded-circle mr-3" onClick={(e) => updateColor(114,22,41)} id="color1"></button>
                         {/* <input type="range" min="20" max="100" className="slider1 ml-4" id="myRange" onchange ="updatePigmentation()"></input> */}
                     </div>
                     <div className="col-sm">
@@ -181,6 +185,7 @@ export default function Tryout() {
                     </button>
     </div>*/}
             </div>
+            <br/>
         </div>
         
             {/*<a href="#">

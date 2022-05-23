@@ -18,7 +18,35 @@ export default function Home1() {
         <div className="row">
             <div className="col-sm">
                 <div className="row-sm">
-                    <img src="https://images.indianexpress.com/2020/08/augmented-reality-for-lipstick-testing.jpg" className="mainimg img-fluid"></img>
+                <div className="container maincar">
+                  <div id="demo" class="carousel slide" data-ride="carousel" data-interval="2000">
+
+                    <ul class="carousel-indicators">
+                      <li data-target="#demo" data-slide-to="0" class="active"></li>
+                      <li data-target="#demo" data-slide-to="1"></li>
+                      <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="https://images.indianexpress.com/2020/08/augmented-reality-for-lipstick-testing.jpg" className="mainimg img-fluid"></img>
+                        </div>
+                        <div class="carousel-item">
+                        <img src="https://miro.medium.com/max/1400/1*NXvzo9qKeZYLdSb4r2tuig.jpeg" className="mainimg img-fluid"></img>
+                        </div>
+                        <div class="carousel-item">
+                        <img src="https://d3ss46vukfdtpo.cloudfront.net/static/media/makeupar-6.6e0b53a8.jpg" className="mainimg img-fluid"></img>
+                      </div>
+
+                      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                      </a>
+                      <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                      </a>
+                    </div>
+                    </div>
+                  </div>
                     <h2 className="carousel-caption1">Augmented Reality Platform</h2>
                     <p className="carousel-caption1">With mirrAR you can virtually try on fashion and beauty products and experience how it feels to own them before the actual purchase.</p>
                     <br/>
@@ -31,13 +59,13 @@ export default function Home1() {
     </div>
       <div className="container my-3">
       <div class="row">
-        <div class="col ml-5 mb-4">
+        <div class="col d-flex justify-content-center mb-4">
         <Card/>
         </div>
-        <div class="col mb-4">
+        <div class="col d-flex justify-content-center mb-4">
         <Card1/>
         </div>
-        <div class="col mb-4">
+        <div class="col d-flex justify-content-center mb-4">
         <Card2/>
         </div>
       </div>        

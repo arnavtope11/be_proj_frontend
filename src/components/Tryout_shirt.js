@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 
 import arrow from '../images/arrow_back_24px.png'
@@ -9,15 +9,35 @@ import color1 from '../images/color1.png'
 import dot from '../images/dot.png'
 import lips1 from '../images/pac1.jpg'
 import lips2 from '../images/pac2.jpg'
-import black from '../images/Plain Black.jpg'
-import green from '../images/Plain Green.jpg'
-import blue from '../images/Plain Blue.jpg'
-import red from '../images/Plain Red.jpg'
-import white from '../images/Plain White.jpg'
+import lightblue from '../images/1.png'
+import red from '../images/2.png'
+import green from '../images/3.png'
+import darkblue from '../images/4.png'
+import turquoise from '../images/5.png'
 
 
 
-export default function Tryout_shirt() {
+export default function Tryout_shirt(props) {
+
+    useEffect(() => {
+        console.log('App comp value:', props);
+        const j = props?.location?.state?.type;
+        if(j) {
+            const bodyStr = {r: j};
+        console.log("after if");
+        fetch('http://127.0.0.1:8080//post_tshirt', {
+            method : 'POST',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            },
+            mode: 'cors',
+            body : JSON.stringify(bodyStr)
+        })
+            .then(response => response.json())
+            .catch(error => console.log(error))
+        }
+        
+      }, [props]);
 
     function storeIntoSession() {
         var imageProduct = sessionStorage.getItem("shirt_img")
@@ -76,11 +96,11 @@ export default function Tryout_shirt() {
                     </div>
                 </div>
                 <hr></hr>   
-            <div className='container cont-tryon bg-light rounded'>
+            <div className='container cont-tryon rounded'>
                 <iframe
                         src={'http://127.0.0.1:8080/video_feed_tshirt'}
-                        width={500} 
-                        height={400}
+                        width={650} 
+                        height={450}
                         allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen>
                 </iframe>
@@ -100,7 +120,7 @@ export default function Tryout_shirt() {
                 </div>
             </div>
             <hr></hr>
-            <div class="container-fluid cont-2 rounded bg-light p-3 my-3 border">
+            <div class="container-fluid cont-2 rounded p-3 mt-4 border">
                 <div className="row row1">
                     <div className="col-sm-1">
                             <img src={sessionStorage.getItem("shirt_img")} className="lips1"></img>
@@ -153,6 +173,7 @@ export default function Tryout_shirt() {
                     </button>
     </div>*/}
             </div>
+            <br/>
         </div>
         
         
